@@ -187,12 +187,6 @@ export const items = [{
 },
 {
     image: "https://neal.fun/spend/images/big-mac.jpg",
-    name: "Single Family Home",
-    cost: 300000,
-    count: 0
-},
-{
-    image: "https://neal.fun/spend/images/big-mac.jpg",
     name: "Gold Bar",
     cost: 700000,
     count: 0
