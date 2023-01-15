@@ -1,7 +1,7 @@
 import React from 'react'
 
-const active = "border border-black rounded-md px-2" 
-const disabled = "border border-black rounded-md px-2 disabled:opacity-50 " 
+const active = "border  rounded-md px-2 bg-green-400" 
+const disabled = "border  rounded-md px-2  disabled:opacity-50 " 
 
 function Button(props) {
   return (
