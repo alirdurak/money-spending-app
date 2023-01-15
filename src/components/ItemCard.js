@@ -25,16 +25,12 @@ function ItemCard({item, id}) {
 
     const buy = ()=>{
         setCount(Number(count) + 1)
-        console.log(count)
     }  
     const sell = ()=>{
         setCount(Number(count) - 1)
-        console.log(count)
     } 
-    
     const buyCount = (e)=>{
       setCount(e.target.value)
-      console.log(count)
     }
     
 
@@ -44,7 +40,7 @@ function ItemCard({item, id}) {
         <img className='w-2/5 self-center' src={item.image} alt="" />
         <div className='flex flex-col'>
           <span>{item.name}</span>
-          <span>{item.cost}$</span>
+          <span>{item.cost.toLocaleString("en-US")}$</span>
         </div>
         <div className='flex justify-center'>
           <Button  disabled={active} text="Sell" onClick={sell} />
