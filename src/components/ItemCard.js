@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import Button from "./Button"
 
 function ItemCard({item, key}) {
     const [count, setCount] = useState(0)
@@ -22,9 +23,9 @@ function ItemCard({item, key}) {
           <span>{item.cost}$</span>
         </div>
         <div className='flex justify-center'>
-          <button onClick={sell}  className='border border-black rounded-md px-2'>Sell</button>
+          <Button text="Sell" onClick={sell} />
           <input  className='border border-black mx-2 rounded-md'  />
-          <button onClick={buy}  className='border border-black rounded-md px-2' >Buy</button>
+          <Button text="Buy" onClick={buy} />
         </div>
         </div>
     
