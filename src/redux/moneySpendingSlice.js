@@ -7,29 +7,25 @@ export const moneySpendingSlice = createSlice({
         productItems: items,
         totalMoney: 100000000000,
         startingMoney:100000000000,
-        receiptItems:[]
+       
         
 
     },
-    reducers:{
+    reducers:{  
         countChange: (state, action) => {
             const {count, id} = action.payload;
             const product = state.productItems.find(product => product.id ===id)
             product.count = count
             
+            let spended = 0
+            state.productItems.forEach((item)=> spended += Number(item.count) * Number(item.cost))
+
+            state.totalMoney = Number(state.startingMoney) - Number(spended) 
+
             
         },
 
-        addingItems: (state ,action) => {
-            const filtered = state.productItems.filter(item => item.count > 0)
-            state.receiptItems = filtered;
-
-            const spended = filtered.map(item => item.count * item.cost)
-
-            state.totalMoney = state.startingMoney - spended 
-
-        }
-
+      
 
     }
 }   

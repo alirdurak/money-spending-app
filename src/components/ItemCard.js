@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 
-import { countChange,addingItems } from '../redux/moneySpendingSlice'
+import { countChange } from '../redux/moneySpendingSlice'
 import Button from "./Button"
 
 function ItemCard({item, id}) {
@@ -13,7 +13,7 @@ function ItemCard({item, id}) {
 
     useEffect(()=>{
       dispatch(countChange({count: count, id: id}))
-      dispatch(addingItems())
+      
     },
     [count])
 
@@ -41,9 +41,21 @@ function ItemCard({item, id}) {
     const sell = ()=>{
         setCount(Number(count) - 1)
     } 
-    const buyCount = (e)=>{
-      setCount(e.target.value)
-    }
+    const buyCount = (value)=>{
+      const maxCount = Math.floor(totalMoney / item.cost) + count
+      if(value && value > 0)
+      {
+        if(value > maxCount && totalMoney >= 0)
+        {
+          setCount(maxCount)
+        }else{
+          setCount(value)
+        }
+      }else{
+        setCount(0)
+      }
+      
+  } 
     
 
   return (
@@ -56,7 +68,7 @@ function ItemCard({item, id}) {
         </div>
         <div className='flex justify-center'>
           <Button  disabled={activeSell} text="Sell" onClick={sell} />
-          <input value={count} onChange={buyCount}  className='border border-black mx-2 rounded-md'  />
+          <input value={count} onChange={(e)=>buyCount(parseInt(e.target.value))}  className='border border-black mx-2 rounded-md'  />
           <Button disabled={activeBuy} text="Buy" onClick={buy} />
         </div>
         </div>
