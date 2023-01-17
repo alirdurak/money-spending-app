@@ -12,19 +12,23 @@ function Receipt() {
     );
 
   return (
-    <div >
-      <div>
+    <div className='flex flex-col' >
+      <h2>Receipt</h2>
+      <div className='my-5 flex justify-center '>
+          
+          <table className='flex flex-col ml-20  justify-center w-1/2  border-b-2 border-slate-300  '>
         {filtered.map(item =>      
-            <table className='flex justify-center gap-1 '>
-              <tr className='w-1/2 flex justify-center'>
-                <td className='w-1/3'>{item.name}</td>
-                <td className='w-1/3'>{item.count}</td>
-                <td className='w-1/3'>{Number(item.count*item.cost).toLocaleString("en-US")}$</td>
+              <tr className='w-full flex  justify-start'>
+                <td className='w-1/3 mr-5 text-start'>Product Name:{item.name}</td>
+                <td className='w-1/3 text-start'>Count:{item.count}</td>
+                <td className='w-1/3 text-start'>Cost:{Number(item.count*item.cost).toLocaleString("en-US")}$</td>
               </tr>
-            </table>
         )}
+        </table>
         </div>
-        <span>Total:{spended.toLocaleString("en-US")}$</span>
+        <div>
+        <span className=" bg-blue-400/75 text-[40px] rounded-lg " >Total:{spended.toLocaleString("en-US")}$</span>
+        </div>
     </div>
   )
 }

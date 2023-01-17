@@ -60,13 +60,13 @@ function ItemCard({item, id}) {
 
   return (
     
-      <div key={id} className='flex flex-col justify-center align-center p-5'> 
-        <img className='w-2/5 self-center' src={item.image} alt="" />
+      <div key={id} className='flex flex-col justify-center align-center py-6'> 
+        <img className=' self-center' src={item.image} alt="" />
         <div className='flex flex-col'>
           <span>{item.name}</span>
           <span>{item.cost.toLocaleString("en-US")}$</span>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center mt-4'>
           <Button  disabled={activeSell} text="Sell" onClick={sell} />
           <input value={count} onChange={(e)=>buyCount(parseInt(e.target.value))}  className='border border-black mx-2 rounded-md'  />
           <Button disabled={activeBuy} text="Buy" onClick={buy} />
