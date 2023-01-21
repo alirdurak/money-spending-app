@@ -15,7 +15,7 @@ function ItemCard({item, id}) {
       dispatch(countChange({count: count, id: id}))
       
     },
-    [count])
+    [count,dispatch,id])
 
     useEffect(()=>{
       if(item.count > 0){
@@ -33,7 +33,7 @@ function ItemCard({item, id}) {
         setActiveBuy(true)
       }
     },
-    [totalMoney])
+    [totalMoney,item.cost])
 
     const buy = ()=>{
         setCount(Number(count) + 1)
